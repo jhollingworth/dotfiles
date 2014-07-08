@@ -15,12 +15,12 @@ alias gc='git commit -m '
 alias ga="git add -A"
 alias gca='git commit --amend'
 alias gco='git checkout'
-alias gb='git branch'
+alias gb='git branch -v'
 alias gu='git pull'
 alias gp='git push'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
-alias grm="git status | grep deleted | awk '{\$1=\$2=\"\"; print \$0}' | \
-           perl -pe 's/^[ \t]*//' | sed 's/ /\\\\ /g' | xargs git rm"
+alias grm="git rebase master"
 alias grh="git reset --hard HEAD"
 alias gr="git remote -v"
 alias gm="git checkout master"
+alias gpt="git push -u origin $(git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
